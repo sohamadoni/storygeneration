@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image History</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-item {
+            width: 220px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .image-info {
+            padding: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .image-actions {
+            margin-top: 10px;
+            font-size: 0.8em;
+        }
+
+        .image-actions a {
+            margin: 0 8px;
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .image-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .upload-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .upload-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uploaded Image History</h1>
+    <div class="image-container">
+        {% for img_name in images %}
+            <div class="image-item">
+                <!-- Display the image as a thumbnail -->
+                <img src="{{ url_for('uploaded_image', filename=img_name) }}" alt="{{ img_name }}">
+                <div class="image-info">
+                    <p>{{ img_name }}</p>
+                </div>
+                <div class="image-actions">
+                    <!-- Link to view, re-check, and delete the image -->
+                    <a href="{{ url_for('display_results', img_name=img_name) }}">View Results</a> |
+                    <a href="{{ url_for('recheck_image', img_name=img_name) }}">Re-check</a> |
+                    <a href="{{ url_for('delete_image', img_name=img_name) }}">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/" class="upload-link">Upload another image</a>
+</body>
+</html>

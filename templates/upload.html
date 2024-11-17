@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        /* Apply a stylish font and background */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Center and style the form container */
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* Heading styling */
+        h1 {
+            color: #3c40c6;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Label and input styling */
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* Style for the button */
+        button {
+            background-color: #3c40c6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        /* Hover effect for button */
+        button:hover {
+            background-color: #575fcf;
+        }
+
+        /* Link styling */
+        .history-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .history-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image for Object Detection and Story Generation</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="file">Choose an image file:</label>
+            <input type="file" name="file" id="file" required>
+
+            <label for="story_features">Optional Story Features:</label>
+            <input type="text" id="story_features" name="story_features" placeholder="Enter themes or story elements...">
+
+            <button type="submit">Upload Image</button>
+        </form>
+
+        <!-- Link to the history page -->
+        <a href="{{ url_for('history') }}" class="history-link">View Uploaded Image History</a>
+    </div>
+</body>
+</html>
