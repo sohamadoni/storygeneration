@@ -1,6 +1,6 @@
 Flask==2.2.2
 Pillow==8.4.0
-ultralytics==8.0.17
+ultralytics==8.0.209  # Adjust to the latest compatible version
 google-generativeai==0.7.0
 torch>=1.7.1,<=2.0.1  # Ensure compatibility with YOLOv8
 numpy>=1.21.0         # YOLOv8 and Torch dependency
