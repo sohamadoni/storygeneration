@@ -6,3 +6,4 @@ torch>=1.7.1,<=2.0.1  # Ensure compatibility with YOLOv8
 numpy>=1.21.0         # YOLOv8 and Torch dependency
 opencv-python-headless==4.5.5.64  # Used by YOLOv8
 requests>=2.26.0      # Required for API interactions
+gunicorn
